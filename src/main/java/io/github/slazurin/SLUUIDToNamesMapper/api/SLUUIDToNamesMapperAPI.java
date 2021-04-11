@@ -61,10 +61,10 @@ public class SLUUIDToNamesMapperAPI {
         if (!cache.isSet(rootAccessor)) {
             return null;
         }
-        List<String> uuids = cache.getStringList(rootAccessor);
-        for (String uuid : uuids) {
-            if (cache.getString(SLUUIDToNamesMapperAPI.rootAccessor + uuid).equalsIgnoreCase(name)) {
-                return UUID.fromString(uuid);
+        Map<String,Object> uuids = cache.getConfigurationSection(rootAccessor).getValues(true);
+        for (Map.Entry<String,Object> entry : uuids.entrySet()) {
+            if (entry.getValue().toString().equalsIgnoreCase(name)) {
+                return UUID.fromString(entry.getKey());
             }
         }
 
