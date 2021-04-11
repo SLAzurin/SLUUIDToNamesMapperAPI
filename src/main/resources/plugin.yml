@@ -1,0 +1,5 @@
+main: io.github.slazurin.SLUUIDToNamesMapper.SLUUIDToNamesMapperPlugin
+name: SLUUIDToNamesMapperAPI
+version: 1.0.0
+author: Azurin
+api-version: 1.16
