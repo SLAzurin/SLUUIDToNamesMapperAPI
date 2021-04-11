@@ -21,10 +21,10 @@ public class SLUUIDToNamesMapperListeners implements Listener {
         String uuid = p.getUniqueId().toString();
         String name = PlainComponentSerializer.plain().serialize(p.displayName());
         // get player name
-        String storedUUID = this.plugin.getApi().getName(uuid);
+        String storedName = this.plugin.getApi().getName(uuid);
 
         // if not there / not same, then update name in store
-        if (storedUUID == null || !this.plugin.getApi().getName(uuid).equalsIgnoreCase(name)) {
+        if (storedName == null || !storedName.equals(name)) {
             this.plugin.getApi().savePlayer(name, uuid);
         }
     }
